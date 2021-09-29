@@ -17,24 +17,25 @@
 </div>
 
 <div class="container mt-5" style="max-width: 400px;">
-    <div class="card bg-light">
-        <article class="card-body mx-auto">
+    <div class="card bg-light mx-2">
+        <article class="card-body">
             <h4 class="card-title mt-3 text-center">Create Account</h4>
             <p class="text-center">Get started with your free account</p>
 
             <form method="post" th:action="@{/registration}" th:object="${user}">
                 <input type="hidden" th:value="${_csrf.token}" name="_csrf" class="form-control"><br>
-                <input class="form-control"
-                       placeholder="Full name"
-                       type="text"
+
+                <input class="form-control" placeholder="Full name" type="text"
                        th:field="*{name}"
                        th:errorclass="hasErrors">
-                <span style="color:red" th:if="${#fields.hasErrors('name')}"
+                <span style="color:red; font-size:12px" th:if="${#fields.hasErrors('name')}"
                       th:errors="*{name}">Name error</span>
 
-                <input name="email"
-                       class="form-control mt-2"
-                       placeholder="Email address" type="email">
+                <input class="form-control mt-2" placeholder="Email address" type="text"
+                       th:field="*{email}"
+                       th:errorclass="hasErrors">
+                <span style="color:red; font-size:12px" th:if="${#fields.hasErrors('email')}"
+                      th:errors="*{email}">Name error</span>
 
                 <div class="form-group input-group mt-2">
                     <select class="custom-select" style="max-width: 120px;">
