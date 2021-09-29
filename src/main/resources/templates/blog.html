@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Puslapio blogas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="fragments/header :: header"></header>
+
+<div class="container mt-5">
+<h1>Puslapio blogas</h1>
+    <div th:each="element : ${blogsPage}" class="alert alert-info mt-2">
+        <h3 th:text="${element.title}"/>
+        <p th:text="${element.anons}"/>
+        <p th:text="${element.authorName}"/>
+        <a th:href="'/blog/' + ${element.id}" class="btn btn-warning">Issamiau</a>
+    </div>
+</div>
+
+<nav aria-label="Page navigation example" class="d-flex justify-content-center">
+    <ul class="pagination">
+        <li class="page-item" th:classappend="${!blogsPage.hasPrevious()} ? disabled">
+            <a class="page-link"
+               th:href="@{/blog?page={pn}&size={size}(pn=${blogsPage.number-1}, size=${blogsPage.size})}"
+               th:text="#{blogs.previous}"
+               ></a>
+        </li>
+        <th:block th:each="pageNumber : ${#numbers.sequence(0, blogsPage.totalPages - 1)}">
+        <li class="page-item" th:classappend="${blogsPage.number == pageNumber} ? active">
+            <a class="page-link" th:href="@{/blog?page={pn}&size={size}(pn=${pageNumber}, size=${blogsPage.size})}"
+               th:text="${pageNumber + 1}"></a>
+        </li>
+        </th:block>
+
+        <li class="page-item" th:classappend="${!blogsPage.hasNext()} ? disabled">
+            <a class="page-link"
+               th:href="@{/blog?page={pn}&size={size}(pn=${blogsPage.number+1}, size=${blogsPage.size})}"
+               th:text="#{blogs.next}"></a>
+        </li>
+    </ul>
+</nav>
+<div th:insert="fragments/footer :: footer"></div>
+</body>
+</html>

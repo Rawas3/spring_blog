@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Spring Security Example </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+<body>
+<div th:fragment="message">
+    <div class="alert alert-success" role="alert"
+         th:if="${message ne null}" th:text="#{${message}}"></div>
+</div>
+
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+
+<div class="container mt-5" style="max-width: 400px;">
+    <div class="card bg-light">
+        <article class="card-body mx-auto">
+            <h4 class="card-title mt-3 text-center">Create Account</h4>
+            <p class="text-center">Get started with your free account</p>
+
+            <form method="post" th:action="@{/registration}" th:object="${user}">
+                <input type="hidden" th:value="${_csrf.token}" name="_csrf" class="form-control"><br>
+                <input class="form-control"
+                       placeholder="Full name"
+                       type="text"
+                       th:field="*{name}"
+                       th:errorclass="hasErrors">
+                <span style="color:red" th:if="${#fields.hasErrors('name')}"
+                      th:errors="*{name}">Name error</span>
+
+                <input name="email"
+                       class="form-control mt-2"
+                       placeholder="Email address" type="email">
+
+                <div class="form-group input-group mt-2">
+                    <select class="custom-select" style="max-width: 120px;">
+                        <option selected="">+370</option>
+                        <option value="1">+371</option>
+                        <option value="2">+44</option>
+                        <option value="3">+701</option>
+                    </select>
+                    <input name="phone" class="form-control" placeholder="Phone number" type="text">
+                </div>
+
+                <input name="username" class="form-control mt-2" placeholder="Username" type="text">
+                <input name="password" class="form-control mt-2" placeholder="Create password" type="password">
+
+                <input class="form-control mt-2" placeholder="Repeat password" type="password">
+
+                <div class="text-center">
+                    <button class="btn btn-primary btn-block mt-3" type="submit">Create Account</button>
+                </div>
+                <p class="text-center mt-2">Have an account? <a href="/login">Log In</a></p>
+            </form>
+        </article>
+    </div>
+
+</div>
+
+</body>
+</html>
