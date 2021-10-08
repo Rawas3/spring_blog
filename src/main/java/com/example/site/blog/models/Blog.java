@@ -1,5 +1,6 @@
 package com.example.site.blog.models;
 
+import com.example.site.blog.models.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,8 +9,6 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Data
 @Entity
@@ -24,8 +23,6 @@ public class Blog {
     @NotBlank(message = "Name cannot be null")
     private String title;
 
-    private String anons;
-
     @Column(name="full_text")
     @Type(type="text")
     private String full_text;
@@ -39,4 +36,11 @@ public class Blog {
     {
         return author != null ? author.getUsername() : "<none>";
     }
+
+    public Blog(String title, String full_text, User user) {
+        this.title = title;
+        this.full_text = full_text;
+        this.author = user;
+    }
+
 }

@@ -11,9 +11,10 @@
 <div class="container mt-5">
   <h1>List of users</h1>
   <div th:each="element : ${users}" class="alert alert-info mt-2">
-    <h3 th:text="${element.name}"/>
-<!--    <p th:text="${element.role}"/>-->
-    <a th:href="'/user/' + ${element.id}" class="btn btn-warning">Atnaujinti</a>
+    <h3 th:text="${element.username}"/>
+    <p th:text="${element.roles}"/>
+
+    <a th:href="'/user/' + ${element.id}" class="btn btn-warning">Taisyti</a>
   </div>
 </div>
 

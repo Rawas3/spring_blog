@@ -1,43 +1,42 @@
-package com.example.site.blog.services;
+package com.example.site.blog.services.blog;
 
-import com.example.site.blog.exception.BlogNotFoundException;
-import com.example.site.blog.models.Blog;
 import com.example.site.blog.repository.BlogRepository;
+import com.example.site.blog.models.Blog;
+import com.example.site.blog.wexceptions.BlogNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
-public class BlogService {
+public class BlogServiceImpl implements BlogService{
 
     private final BlogRepository blogRepository;
 
+    @Override
     public void addBlog(Blog blog) {
         blogRepository.save(blog);
     }
 
+    @Override
     public Page<Blog> getProductsPaginated(Pageable page) {
         return blogRepository.findAll(page);
     }
-    public List<Blog> getBlogs() {
-        return blogRepository.findAll();
-    }
 
+    @Override
     public Blog getBlog(Long id) {
         return blogRepository.findById(id).orElseThrow(BlogNotFoundException::new);
     }
 
+    @Override
     public void editBlog(Blog blog) {
         blogRepository.save(blog);
     }
 
+    @Override
     public void deleteBlog (Long id) {
         blogRepository.deleteById(id);
     }
-
 
 }

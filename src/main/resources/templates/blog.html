@@ -12,7 +12,6 @@
 <h1>Puslapio blogas</h1>
     <div th:each="element : ${blogsPage}" class="alert alert-info mt-2">
         <h3 th:text="${element.title}"/>
-        <p th:text="${element.anons}"/>
         <p th:text="${element.authorName}"/>
         <a th:href="'/blog/' + ${element.id}" class="btn btn-warning">Issamiau</a>
     </div>

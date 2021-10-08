@@ -2,6 +2,7 @@ package com.example.site.blog.models;
 
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +17,8 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Table(name = "usr")
+@Table(name = "users")
+@RequiredArgsConstructor
 public class User implements UserDetails {
 
     @Id
@@ -24,20 +26,28 @@ public class User implements UserDetails {
     private Long id;
 
     @NotEmpty(message = "Field should not be empty")
-    @Size(min = 2, max = 5, message = "Name should be between 2 and 5 characters")
-    private String name;
-
-    @NotEmpty(message = "Field should not be empty")
     @Email(message = "Email should be valid")
     private String email;
+
     private String phoneNumber;
+
+    @Size(min = 6, max = 32)
     private String username;
+    @NotEmpty
+    @Size(min = 8, max = 32)
     private String password;
+
+    @Transient
+    @NotEmpty
+    @Size(min = 8, max = 32)
     private String repeatedPassword;
     private boolean active;
 
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+
+    @ManyToMany
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 

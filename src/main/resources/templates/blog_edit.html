@@ -15,7 +15,6 @@
         <form method="post">
             <input type="hidden" th:value="${_csrf.token}" name="_csrf" class="form-control"><br>
             <input type="text" th:value="${element.title}" name="title" placeholder="Iveskite straipsnio pavadinima" class="form-control"><br>
-            <input type="text" th:value="${element.anons}" name="anons" placeholder="Iveskite straipsnio anonsa" class="form-control"><br>
             <textarea name="full_text" placeholder="Iveskite straipsnio teksta" class="form-control" th:text="${element.full_text}"/><br>
             <button type="submit" class="btn btn-success">Atnaujinti</button>
         </form>
