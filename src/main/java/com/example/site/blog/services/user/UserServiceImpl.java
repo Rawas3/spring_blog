@@ -2,7 +2,7 @@ package com.example.site.blog.services.user;
 
 import com.example.site.blog.models.Role;
 import com.example.site.blog.models.User;
-import com.example.site.blog.repository.RoleRepository;
+
 import com.example.site.blog.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,15 +17,14 @@ import java.util.Set;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+/*    private final BCryptPasswordEncoder bCryptPasswordEncoder;*/
 
     @Override
     public void save(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        /*user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         Set<Role> roles = new HashSet<>();
         roles.add(roleRepository.getById(1L));
-        user.setRoles(roles);
+        user.setRoles(roles);*/
         userRepository.save(user);
     }
 

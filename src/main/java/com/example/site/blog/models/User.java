@@ -31,23 +31,21 @@ public class User implements UserDetails {
 
     private String phoneNumber;
 
-    @Size(min = 6, max = 32)
+/*    @Size(min = 6, max = 32)*/
     private String username;
-    @NotEmpty
-    @Size(min = 8, max = 32)
+/*    @NotEmpty
+    @Size(min = 8, max = 32)*/
     private String password;
 
-    @Transient
+/*    @Transient
     @NotEmpty
-    @Size(min = 8, max = 32)
+    @Size(min = 8, max = 32)*/
     private String repeatedPassword;
     private boolean active;
 
 
-    @ManyToMany
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 

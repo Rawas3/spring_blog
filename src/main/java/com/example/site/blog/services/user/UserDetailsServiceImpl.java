@@ -11,9 +11,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
-
 
 @Service
 @RequiredArgsConstructor
@@ -23,16 +20,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-        User user = userRepository.findByUsername(username);
-        Set<GrantedAuthority> grantedAuthoritySet = new HashSet<>();
-
-        for (Role role : user.getRoles()){
-            grantedAuthoritySet.add(new SimpleGrantedAuthority(role.getName()));
-        }
-        return new org.springframework.security.core.userdetails
-                .User(user.getUsername(),
-                user.getPassword(),
-                grantedAuthoritySet);
+        return userRepository.findByUsername(username);
     }
 }
