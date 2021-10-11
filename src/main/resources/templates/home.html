@@ -1,12 +1,9 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title th:text="${title}"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
-</head>
+<head th:replace="fragments/fragments :: headFragment('Home page')"></head>
+
 <body>
-<header th:insert="fragments/header :: header"></header>
+<header th:insert="fragments/fragments :: header"></header>
 
 <main>
 
@@ -169,7 +166,7 @@
     </div>
 
 </main>
-<div th:insert="fragments/footer :: footer"></div>
+<div th:insert="fragments/fragments :: footer"></div>
 </body>
 </html>
 

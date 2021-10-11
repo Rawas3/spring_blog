@@ -40,7 +40,7 @@ public class User implements UserDetails {
 /*    @Transient
     @NotEmpty
     @Size(min = 8, max = 32)*/
-    private String repeatedPassword;
+    private String confirmedPassword;
     private boolean active;
 
 

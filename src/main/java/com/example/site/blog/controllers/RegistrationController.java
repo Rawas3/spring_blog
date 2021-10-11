@@ -4,12 +4,10 @@ import com.example.site.blog.models.Role;
 import com.example.site.blog.models.User;
 import com.example.site.blog.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,7 +16,7 @@ import java.util.Collections;
 
 
 @Controller
-@RequestMapping("/registration")
+@RequestMapping("/login")
 @RequiredArgsConstructor
 public class RegistrationController {
 
@@ -28,7 +26,7 @@ public class RegistrationController {
     @GetMapping
     public String registration(Model model) {
         model.addAttribute("user", new User());
-        return "registration";
+        return "security/login";
     }
 
     @PostMapping
@@ -37,17 +35,17 @@ public class RegistrationController {
         User userFromDb = userRepository.findByUsername(user.getUsername());
 
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "security/login";
         } else if (userFromDb != null) {
             model.addAttribute("message", "User exist!");
-            return "registration";
+            return "security/login";
         }
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
         userRepository.save(user);
         /*user.setPassword(passwordEncoder.encode(user.getPassword()));*/
 
-        return "redirect:/logins/login";
+        return "redirect:/security/login";
 
     }
 }

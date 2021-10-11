@@ -38,7 +38,7 @@ public class UserValidator implements Validator {
             errors.rejectValue("password", "size.password");
         }
 
-        if(!user.getRepeatedPassword().equals(user.getPassword())) {
+        if(!user.getConfirmedPassword().equals(user.getPassword())) {
             errors.rejectValue("repeatedPassword", "duplicate.password");
         }
     }
