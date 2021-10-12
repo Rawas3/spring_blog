@@ -1,14 +1,16 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/fragments :: headFragment('Add blog')"></head>
+
 <body>
 <header th:insert="fragments/fragments :: header"></header>
+
 <div class="container mt-5 mb-5">
     <h1>Prideti straipsni</h1>
-    <form action="/blog/add" method="post">
+    <form action="/blog/add" th:method="post">
         <input type="hidden" th:value="${_csrf.token}" name="_csrf" class="form-control"><br>
         <input type="text" name="title" placeholder="Iveskite straipsnio pavadinima" class="form-control"><br>
-        <textarea name="full_text" placeholder="Iveskite straipsnio teksta" class="form-control"></textarea><br>
+        <textarea class="form-control" name="full_text" placeholder="Iveskite straipsnio teksta"></textarea><br>
         <button type="submit" class="btn btn-success">Prideti</button>
     </form>
 </div>

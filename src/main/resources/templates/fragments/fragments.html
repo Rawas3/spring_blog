@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- Head fragment -->
 <head th:fragment="headFragment(title)">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <script crossorigin="anonymous"
@@ -9,11 +11,12 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script th:src="@{/js/language.js}" type="text/javascript"></script>
+    <!--<script th:src="@{/js/language.js}" type="text/javascript"></script>-->
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <title th:text="${title}"></title>
 </head>
 
+<!-- Header fragment -->
 <div th:fragment="header">
     <div class="d-flex flex-column flex-md-row align-items-center p-3 mb-4 border-bottom">
         <h5 class="fs-4">Blog</h5>
@@ -31,6 +34,7 @@
     </div>
 </div>
 
+<!-- Footer fragment -->
 <div th:fragment="footer">
     <footer class="text-muted py-5">
         <div class="container">

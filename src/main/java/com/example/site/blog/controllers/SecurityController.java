@@ -3,6 +3,7 @@ package com.example.site.blog.controllers;
 import com.example.site.blog.models.Role;
 import com.example.site.blog.models.User;
 import com.example.site.blog.repository.UserRepository;
+import com.example.site.blog.services.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,25 +15,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 import java.util.Collections;
 
-
 @Controller
-@RequestMapping("/login")
 @RequiredArgsConstructor
-public class RegistrationController {
+public class SecurityController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
     /*private final PasswordEncoder passwordEncoder;*/
 
-    @GetMapping
+    @GetMapping("/login")
     public String registration(Model model) {
         model.addAttribute("user", new User());
         return "security/login";
     }
 
-    @PostMapping
-    public String addUser(Model model, @Valid User user, BindingResult bindingResult) {
+    @PostMapping("/registration")
+    public String saveUser(Model model, @Valid User user, BindingResult bindingResult) {
 
-        User userFromDb = userRepository.findByUsername(user.getUsername());
+        User userFromDb = userService.findByUsername(user.getUsername());
 
         if (bindingResult.hasErrors()) {
             return "security/login";
@@ -42,7 +41,7 @@ public class RegistrationController {
         }
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
-        userRepository.save(user);
+        userService.addUser(user);
         /*user.setPassword(passwordEncoder.encode(user.getPassword()));*/
 
         return "redirect:/security/login";

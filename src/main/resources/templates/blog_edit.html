@@ -1,23 +1,22 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/fragments :: headFragment('Edit blog')"></head>
-<body>
 
+<body>
 <header th:insert="fragments/fragments :: header"></header>
 
 <div class="container mt-5 mb-5">
     <h1>Straipsnio koregavimas</h1>
     <div th:each="element : ${blog}">
-        <form method="post">
-            <input type="hidden" th:value="${_csrf.token}" name="_csrf" class="form-control"><br>
-            <input type="text" th:value="${element.title}" name="title" placeholder="Iveskite straipsnio pavadinima" class="form-control"><br>
-            <textarea name="full_text" placeholder="Iveskite straipsnio teksta" class="form-control" th:text="${element.full_text}"/><br>
+        <form th:method="post">
+            <input type="hidden" class="form-control" name="_csrf" th:value="${_csrf.token}"><br>
+            <input type="text" class="form-control" name="title" placeholder="Iveskite straipsnio pavadinima" th:value="${element.title}"><br>
+            <textarea class="form-control" name="full_text" placeholder="Iveskite straipsnio teksta" th:text="${element.full_text}"/><br>
             <button type="submit" class="btn btn-success">Atnaujinti</button>
         </form>
     </div>
 </div>
 
 <div th:insert="fragments/fragments :: footer"></div>
-
 </body>
 </html>

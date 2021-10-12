@@ -1,10 +1,11 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/fragments :: headFragment('Blog details')"></head>
+
 <body>
 <header th:insert="fragments/fragments :: header"></header>
-<div class="container mt-5">
 
+<div class="container mt-5">
     <div th:each="element : ${blog}" class="alert alert-info mt-2">
         <h3 th:text="${element.title}"/>
         <p th:text="${element.full_text}"/>

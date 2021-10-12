@@ -21,7 +21,7 @@
             <h4 class="card-title mt-3 text-center">Log In or Sign Up</h4>
             <p class="text-center">Get started with your free account</p>
 
-            <form th:action="@{/login}" th:method="post">
+            <form th:method="post" th:action="@{/login}">
 
                 <input name="username" class="form-control mt-2 bg-light" placeholder="Username" type="text">
                 <input name="password" class="form-control mt-2 bg-light" placeholder="Enter password" type="password">
@@ -50,7 +50,9 @@
     <div class="modal-dialog modal-dialog-centered" style="max-width: 450px;">
         <div class="modal-content">
 
-            <form method="post" th:action="@{/registration}" th:object="${user}">
+            <form th:method="post" th:action="@{/registration}" th:object="${user}">
+
+                <input type="hidden" th:value="${_csrf.token}" name="_csrf" class="form-control">
 
                 <div class="modal-header">
                     <h4 class="modal-title">Create Account </h4>
@@ -73,8 +75,8 @@
                                 <option selected="">+370</option>
                                 <option value="1">+371</option>
                             </select>
-                            <input type="text" name="phoneNumber" class="form-control bg-light" id="Phone"
-                                   placeholder="Phone number">
+                            <input type="text" class="form-control bg-light" id="Phone"
+                                   name="phoneNumber" placeholder="Phone number">
                         </div>
                     </div>
                     <div class="mb-2">
@@ -95,9 +97,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success my-2 mx-auto w-50">Sign Up</button>
+                    <button type="submit" class="btn btn-primary my-2 mx-auto w-50">Sign Up</button>
                 </div>
-                <input type="hidden" th:value="${_csrf.token}" name="_csrf" class="form-control">
             </form>
         </div>
     </div>
