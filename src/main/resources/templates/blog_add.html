@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/fragments :: headFragment('Add blog')"></head>
+<head th:replace="fragments/main_fragments :: head('Add blog')"></head>
 
 <body>
-<header th:insert="fragments/fragments :: header"></header>
+<header th:insert="fragments/main_fragments :: header"></header>
 
 <div class="container mt-5 mb-5">
     <h1>Prideti straipsni</h1>
@@ -15,6 +15,6 @@
     </form>
 </div>
 
-<div th:insert="fragments/fragments :: footer"></div>
+<div th:insert="fragments/main_fragments :: footer"></div>
 </body>
 </html>

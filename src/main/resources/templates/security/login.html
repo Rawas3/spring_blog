@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="fragments/fragments :: headFragment('Login')"></head>
+<head th:replace="fragments/main_fragments :: head('Login')"></head>
 
 <body>
-<header th:insert="fragments/fragments :: header"></header>
+<header th:insert="fragments/main_fragments :: header"></header>
 <div th:fragment="message">
     <div class="alert alert-success" role="alert"
          th:if="${message ne null}" th:text="#{${message}}">
@@ -103,7 +103,7 @@
         </div>
     </div>
 </div>
-<div th:insert="fragments/fragments :: footer"></div>
+<div th:insert="fragments/main_fragments :: footer"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

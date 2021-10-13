@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/fragments :: headFragment('Blog')"></head>
+<head th:replace="fragments/main_fragments :: head('Blog')"></head>
 <body>
-<header th:insert="fragments/fragments :: header"></header>
+<header th:insert="fragments/main_fragments :: header"></header>
 
 <div class="container mt-5">
 <h1>Puslapio blogas</h1>
@@ -18,7 +18,7 @@
         <li class="page-item" th:classappend="${!blogsPage.hasPrevious()} ? disabled">
             <a class="page-link"
                th:href="@{/blog?page={pn}&size={size}(pn=${blogsPage.number-1}, size=${blogsPage.size})}"
-               th:text="#{blogs.previous}"
+               th:text="#{pagenation.previous}"
                ></a>
         </li>
         <th:block th:each="pageNumber : ${#numbers.sequence(0, blogsPage.totalPages - 1)}">
@@ -31,10 +31,10 @@
         <li class="page-item" th:classappend="${!blogsPage.hasNext()} ? disabled">
             <a class="page-link"
                th:href="@{/blog?page={pn}&size={size}(pn=${blogsPage.number+1}, size=${blogsPage.size})}"
-               th:text="#{blogs.next}"></a>
+               th:text="#{pagenation.next}"></a>
         </li>
     </ul>
 </nav>
-<div th:insert="fragments/fragments :: footer"></div>
+<div th:insert="fragments/main_fragments :: footer"></div>
 </body>
 </html>

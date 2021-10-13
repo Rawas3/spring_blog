@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/fragments :: headFragment('Blog details')"></head>
+<head th:replace="fragments/main_fragments :: head('Blog details')"></head>
 
 <body>
-<header th:insert="fragments/fragments :: header"></header>
+<header th:insert="fragments/main_fragments :: header"></header>
 
 <div class="container mt-5">
     <div th:each="element : ${blog}" class="alert alert-info mt-2">
@@ -19,6 +19,6 @@
     </div>
 </div>
 
-<div th:insert="fragments/fragments :: footer"></div>
+<div th:insert="fragments/main_fragments :: footer"></div>
 </body>
 </html>

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <!-- Head fragment -->
-<head th:fragment="headFragment(title)">
+<head th:fragment="head(title)">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <script crossorigin="anonymous"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -19,16 +21,16 @@
 <!-- Header fragment -->
 <div th:fragment="header">
     <div class="d-flex flex-column flex-md-row align-items-center p-3 mb-4 border-bottom">
-        <h5 class="fs-4">Blog</h5>
-        <span><a href="/user">User list</a> </span>
+        <h5 class="fs-4" th:text="#{header.logo}"></h5>
+        <span><a href="/user" th:text="#{header.userList}"></a></span>
 
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-            <a class="me-3 py-2 text-dark text-decoration-none" href="/">HOME</a>
-            <a class="me-3 py-2 text-dark text-decoration-none" href="/blog">BLOG</a>
-            <a class="me-3 py-2 text-dark text-decoration-none" href="/blog/add">ADD BLOG</a>
-            <a class="me-3 py-2 text-dark text-decoration-none" href="/about">ABOUT US</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/" th:text="#{header.home}"></a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/blog" th:text="#{header.blog}"></a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/blog/add" th:text="#{header.addBlog}"></a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/about" th:text="#{header.about}"></a>
             <form th:action="@{/logout}" method="post">
-                <input class="my-2 py-0 text-dark text-decoration-none" type="submit" value="Sign Out"/>
+                <input class="my-2 py-0 text-dark text-decoration-none" type="submit" th:value="#{header.button.signOut}"/>
             </form>
         </nav>
     </div>
@@ -39,11 +41,12 @@
     <footer class="text-muted py-5">
         <div class="container">
             <p class="float-end mb-1">
-                <a href="#">Back to top</a>
+                <a href="#" th:text="#{footer.href.backToTop}"></a>
             </p>
-            <p class="mb-1">Album example is © Bootstrap, but please download and customize it for yourself!</p>
-            <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a
-                    href="/docs/5.1/getting-started/introduction/">getting started guide</a>.</p>
+            <p class="mb-1" th:text="#{footer.text}"></p>
+            <p class="mb-0" th:text="#{footer.text1}"></p>
+              <p class="float-end mb-0"> <a href="https://getbootstrap.com/docs/3.3/getting-started/"
+                   th:text="#{footer.href.guide}"></a></p>
         </div>
     </footer>
 </div>
