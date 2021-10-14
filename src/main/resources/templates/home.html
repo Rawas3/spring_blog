@@ -1,41 +1,42 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="fragments/main_fragments :: head('Home page')"></head>
+<meta charset="UTF-8">
+<head th:replace="fragments/main_fragments :: head('Home page')"></head>
 
-    <body>
-        <header th:insert="fragments/main_fragments :: header"></header>
+<body>
+<header th:insert="fragments/main_fragments :: header"></header>
 
-        <main>
-            <section class="py-5 text-center container">
-                <div class="row py-lg-5">
-                    <div class="col-lg-6 col-md-8 mx-auto">
-                        <h1 class="fw-light" th:text="#{homepage.heading}"></h1>
-                        <p class="lead text-muted" th:text="#{homepage.heading.leadText}"></p>
-                        <p>
-                            <a href="#" class="btn btn-primary my-2" th:text="#{homepage.button.main}"></a>
-                            <a href="#" class="btn btn-secondary my-2" th:text="#{homepage.button.secondary}"></a>
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <div class="album py-5 bg-light">
-                <div class="container">
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <div th:replace="fragments/home_fragments :: column_1"></div>
-                        <div th:replace="fragments/home_fragments :: column_1"></div>
-
-                        <div th:replace="fragments/home_fragments :: column_1"></div>
-                        <div th:replace="fragments/home_fragments :: column_1"></div>
-
-                        <div th:replace="fragments/home_fragments :: column_1"></div>
-                        <div th:replace="fragments/home_fragments :: column_1"></div>
-                    </div>
-                </div>
+<main>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">[[#{homepage.heading}]]</h1>
+                <p class="lead text-muted">[[#{homepage.heading.leadText}]]</p>
+                <p>
+                    <a href="#" class="btn btn-primary my-2">[[#{homepage.button.main}]]</a>
+                    <a href="#" class="btn btn-secondary my-2">[[#{homepage.button.secondary}]]</a>
+                </p>
             </div>
+        </div>
+    </section>
 
-        </main>
-        <div th:insert="fragments/main_fragments :: footer"></div>
-    </body>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div th:replace="fragments/home_fragments :: column_1"></div>
+                <div th:replace="fragments/home_fragments :: column_1"></div>
+
+                <div th:replace="fragments/home_fragments :: column_1"></div>
+                <div th:replace="fragments/home_fragments :: column_1"></div>
+
+                <div th:replace="fragments/home_fragments :: column_1"></div>
+                <div th:replace="fragments/home_fragments :: column_1"></div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<div th:insert="fragments/main_fragments :: footer"></div>
+</body>
 </html>
 

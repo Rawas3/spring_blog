@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("{user}")
-    public String userEditForm(@PathVariable User user, Model model) {
+    private String userEditForm(@PathVariable User user, Model model) {
         model.addAttribute("user", user);
         model.addAttribute("roles", Role.values());
         return "user/user_edit";

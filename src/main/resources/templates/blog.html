@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
 <head th:replace="fragments/main_fragments :: head('Blog')"></head>
 <body>
 <header th:insert="fragments/main_fragments :: header"></header>
@@ -18,8 +19,7 @@
         <li class="page-item" th:classappend="${!blogsPage.hasPrevious()} ? disabled">
             <a class="page-link"
                th:href="@{/blog?page={pn}&size={size}(pn=${blogsPage.number-1}, size=${blogsPage.size})}"
-               th:text="#{pagenation.previous}"
-               ></a>
+               >[[#{pagenation.previous}]]</a>
         </li>
         <th:block th:each="pageNumber : ${#numbers.sequence(0, blogsPage.totalPages - 1)}">
         <li class="page-item" th:classappend="${blogsPage.number == pageNumber} ? active">
@@ -31,7 +31,7 @@
         <li class="page-item" th:classappend="${!blogsPage.hasNext()} ? disabled">
             <a class="page-link"
                th:href="@{/blog?page={pn}&size={size}(pn=${blogsPage.number+1}, size=${blogsPage.size})}"
-               th:text="#{pagenation.next}"></a>
+               >[[#{pagenation.next}]]</a>
         </li>
     </ul>
 </nav>
