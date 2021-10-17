@@ -9,7 +9,6 @@
   <div th:each="element : ${users}" class="alert alert-info mt-2">
     <h3 th:text="${element.username}"/>
     <p th:text="${element.roles}"/>
-
     <a th:href="'/user/' + ${element.id}" class="btn btn-warning">Taisyti</a>
   </div>
 </div>

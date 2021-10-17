@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 /*    private final BCryptPasswordEncoder bCryptPasswordEncoder;*/
 
     @Override
-    public void addUser(User user) {
+    public void saveUser(User user) {
         userRepository.save(user);
     }
 
