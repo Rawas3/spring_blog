@@ -15,7 +15,7 @@ public class BlogServiceImpl implements BlogService{
     private final BlogRepository blogRepository;
 
     @Override
-    public void addBlog(Blog blog) {
+    public void saveBlog(Blog blog) {
         blogRepository.save(blog);
     }
 
@@ -27,11 +27,6 @@ public class BlogServiceImpl implements BlogService{
     @Override
     public Blog getBlog(Long id) {
         return blogRepository.findById(id).orElseThrow(BlogNotFoundException::new);
-    }
-
-    @Override
-    public void editBlog(Blog blog) {
-        blogRepository.save(blog);
     }
 
     @Override

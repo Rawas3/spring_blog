@@ -7,15 +7,14 @@
 <div class="container mt-5 mb-5">
     <h1>Vartotojo koregavimas</h1>
     <div>
-        <form action="/user" method="post">
-            <input type="hidden" th:value="${_csrf.token}" name="_csrf" class="form-control"><br>
-            <input type="text" th:value="${user.id}" name="userId" class="form-control"><br>
-            <input type="text" th:value="${user.name}" name="name" placeholder="${name}"
-                   class="form-control"><br>
-            <div th:each="element : ${user.roles}" class="alert alert-info mt-2">
-                <input type="text" th:value="${element.role}" name="role" placeholder="${role}"
-                       class="form-control"><br>
-            </div>
+        <form action="/userlist" method="post">
+            <input type="hidden" class="form-control" th:value="${_csrf.token}" name="_csrf"><br>
+            <input type="hidden" class="form-control" th:value="${user.id}" name="userId"><br>
+            <input type="text" class="form-control" th:value="${user.username}" name="username"><br>
+            <div th:each="role : ${roles}" class="form-check">
+                <label><input type="checkbox" th:checked="${#lists.contains(user.roles, role)}"
+                              th:name="${role}" th:text="${role}"></label>
+            </div><br>
             <button type="submit" class="btn btn-success">Issaugoti</button>
         </form>
     </div>

@@ -6,13 +6,11 @@ import org.springframework.data.domain.Pageable;
 
 public interface BlogService {
 
-    void addBlog(Blog blog);
+    void saveBlog(Blog blog);
 
     Page<Blog> getProductsPaginated(Pageable page);
 
     Blog getBlog(Long id);
-
-    void editBlog(Blog blog);
 
     void deleteBlog(Long id);
 }

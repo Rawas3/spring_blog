@@ -2,6 +2,10 @@ body {
     background-color: #f0f2f5;
 }
 
+tr {
+    vertical-align: middle;
+}
+
 .nav_link {
     margin-right: 1rem !important;
     text-decoration: none !important;
@@ -50,12 +54,28 @@ body {
     border-color: #f26c06;
 }
 
-/*
-.hasErrors {
-    border-color: red;
-    color: red;
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid transparent;
+    border-radius: 0;
+}
+.btn-circle.btn-lg, .btn-group-lg>.btn-circle.btn {
+    width: 50px;
+    height: 50px;
+    padding: 14px 15px;
+    font-size: 18px;
+    line-height: 23px;
 }
 
-.error-block {
-    background-color: #e27b7b;
-}*/
+table {
+    border-collapse: separate;
+    text-indent: initial;
+    border-spacing: 2px;
+}
+

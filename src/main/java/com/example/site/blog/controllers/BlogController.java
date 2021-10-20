@@ -30,7 +30,7 @@ public class BlogController {
     @PostMapping("/blog/add")
     public String blogPostAdd(Model model, Blog blog) {
 
-        blogService.addBlog(blog);
+        blogService.saveBlog(blog);
         return "redirect:/blog";
     }
 
@@ -48,7 +48,7 @@ public class BlogController {
 
     @PostMapping("/blog/{id}/edit")
     public String blogPostUpdate(Model model, Blog blog) {
-        blogService.editBlog(blog);
+        blogService.saveBlog(blog);
         return "redirect:/blog";
     }
 
