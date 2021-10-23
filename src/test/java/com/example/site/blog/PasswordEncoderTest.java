@@ -6,6 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+
 public class PasswordEncoderTest {
 
     @Test

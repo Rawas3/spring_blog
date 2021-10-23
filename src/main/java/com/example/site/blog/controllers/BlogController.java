@@ -29,7 +29,6 @@ public class BlogController {
 
     @PostMapping("/blog/add")
     public String blogPostAdd(Model model, Blog blog) {
-
         blogService.saveBlog(blog);
         return "redirect:/blog";
     }

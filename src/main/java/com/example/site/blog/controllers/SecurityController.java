@@ -1,10 +1,8 @@
 package com.example.site.blog.controllers;
 
-import com.example.site.blog.models.Role;
 import com.example.site.blog.models.User;
 import com.example.site.blog.services.user.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,14 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
-import java.util.Collections;
 
 @Controller
 @RequiredArgsConstructor
 public class SecurityController {
 
     private final UserService userService;
-    private final PasswordEncoder passwordEncoder;
 
     @GetMapping("/login")
     public String registration(Model model) {
@@ -28,7 +24,7 @@ public class SecurityController {
     }
 
     @PostMapping("/registration")
-    public String addUser(Model model, @Valid User user, BindingResult bindingResult) {
+    public String registerUser(Model model, @Valid User user, BindingResult bindingResult) {
 
         User userFromDb = userService.findByUsername(user.getUsername());
 
@@ -38,12 +34,8 @@ public class SecurityController {
             model.addAttribute("message", "User exist!");
             return "security/login";
         }
-        user.setActive(true);
-        user.setRoles(Collections.singleton(Role.USER));
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userService.saveUser(user);
+        userService.addUser(user);
 
         return "redirect:/security/login";
-
     }
 }

@@ -1,22 +1,23 @@
 package com.example.site.blog.models;
 
-
-import lombok.Getter;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+@Data
 @Entity
-@Getter
-@Setter
 @Table(name = "users")
 @RequiredArgsConstructor
 public class User implements UserDetails {
@@ -27,22 +28,26 @@ public class User implements UserDetails {
 
     @NotEmpty(message = "Field should not be empty")
     @Email(message = "Email should be valid")
+    @Column(name = "email")
     private String email;
 
+    @Column(name = "phoneNumber")
     private String phoneNumber;
 
-/*    @Size(min = 6, max = 32)*/
+    @Column(name = "username")
     private String username;
-/*    @NotEmpty
-    @Size(min = 8, max = 32)*/
+
+    @Column(name = "password")
     private String password;
 
-/*    @Transient
-    @NotEmpty
-    @Size(min = 8, max = 32)*/
+    @Transient
     private String confirmedPassword;
-    private boolean active;
 
+    @CreatedDate
+    @Column(name = "created")
+    private Date created;
+
+    private boolean active;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
@@ -51,6 +56,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+
         return getRoles();
     }
 
