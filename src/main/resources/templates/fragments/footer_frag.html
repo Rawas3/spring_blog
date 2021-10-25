@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<!-- Footer fragment -->
+<div th:fragment="footer">
+    <footer class="text-muted py-5">
+        <div class="container">
+            <p class="mb-1">[[#{footer.text}]]</p>
+            <p class="mb-0">[[#{footer.text.read}]]
+                <a href="https://getbootstrap.com/docs/3.3/getting-started/">[[#{footer.href.guide}]]</a>.</p>
+        </div>
+    </footer>
+</div>
+</html>

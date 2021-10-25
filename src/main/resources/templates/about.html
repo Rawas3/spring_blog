@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/main_fragments :: head('About')"></head>
+<head th:replace="fragments/head_frag :: head('About')"></head>
 <body>
-<header th:insert="fragments/main_fragments :: header"></header>
+<header th:insert="fragments/header_frag :: header"></header>
 <div class="container mt-5">
   <h1 th:text="${title}"/>
 </div>
-<div th:insert="fragments/main_fragments :: footer"></div>
+<div th:insert="fragments/footer_frag :: footer"></div>
 </body>
 </html>

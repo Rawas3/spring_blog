@@ -36,11 +36,4 @@ public class Blog {
     {
         return author != null ? author.getUsername() : "<none>";
     }
-
-    public Blog(String title, String full_text, User user) {
-        this.title = title;
-        this.full_text = full_text;
-        this.author = user;
-    }
-
 }

@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/main_fragments :: head('User edit')"></head>
+<head th:replace="fragments/head_frag :: head('User edit')"></head>
 <body>
-<header th:insert="fragments/main_fragments :: header"></header>
+<header th:insert="fragments/header_frag :: header"></header>
 
 <div class="container mt-5 mb-5">
     <h1>Vartotojo koregavimas</h1>
@@ -20,6 +20,6 @@
     </div>
 </div>
 
-<div th:insert="fragments/main_fragments :: footer"></div>
+<div th:insert="fragments/footer_frag :: footer"></div>
 </body>
 </html>
