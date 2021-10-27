@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<!-- Header fragment -->
+<div th:fragment="section(heading)">
+
+    <div class="hero-wrap hero-wrap-2">
+        <div class="container-inner">
+            <img class="w-100" src="images/garden/xbg_2.jpg" alt="">
+            <div class="centered">
+                <h1 class="bread" th:text="${heading}"></h1>
+            </div>
+        </div>
+        <div class="overlay"></div>
+    </div>
+
+</div>
+</html>>
