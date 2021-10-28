@@ -1,5 +1,4 @@
 
-
 .container-inner {
     position: relative;
     height: 300px;
@@ -21,8 +20,6 @@
     transform: translate(-50%, -50%);
     z-index: 1;
 }
-
-
 
 .hero-wrap.hero-wrap-2 {
     height: 300px;
@@ -48,7 +45,7 @@
     bottom: 0;
     content: '';
     opacity: .3;
-    background: #f1453d;
+    background: #696262;
 }
 .bread {
     font-size: 60px;

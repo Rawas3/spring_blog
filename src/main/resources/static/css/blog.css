@@ -1,0 +1,81 @@
+.blogs-section {
+    padding: 7em 0;
+    position: relative;
+}
+
+.sidebar-widgets {
+    padding-bottom: 120px;
+}
+
+.widget-wrap {
+    background: #fafaff;
+    padding: 20px 0;
+    border: 1px solid #eee;
+}
+
+.widget-wrap .single-sidebar-widget {
+    margin: 30px 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.widget-wrap .search-widget form.search-form input {
+    color: #fff;
+    padding: 10px 22px;
+    font-size: 14px;
+    border: none;
+    float: left;
+    width: 80%;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    background: #fda638;
+    line-height: inherit;
+}
+
+.widget-wrap .search-widget form.search-form button {
+    color: #fff;
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #fda638;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    line-height: inherit;
+}
+
+.widget-wrap .search-widget form.search-form::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.block-20 {
+    overflow: hidden;
+    position: relative;
+}
+
+.block-20 img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-entry .meta-date {
+    display: inline-block;
+    background: #5d50c6;
+    position:absolute;
+    left: 0;
+}
+
+.blog-entry .meta-date span {
+    display: block;
+    color: #fff;
+}
+
+.blog-entry .meta-date .day {
+    font-weight: 700;
+    font-size: 20px;
+}
