@@ -31,21 +31,21 @@ public class User implements UserDetails {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "phoneNumber")
+    /*@Column(name = "phoneNumber")*/
     private String phoneNumber;
 
-    @Column(name = "username")
+    /*@Column(name = "username")*/
     private String username;
 
-    @Column(name = "password")
+    /*@Column(name = "password")*/
     private String password;
 
-    @Transient
-    private String confirmedPassword;
+    /*@Transient
+    private String confirmedPassword;*/
 
-    @CreatedDate
+    /*@CreatedDate
     @Column(name = "created")
-    private Date created;
+    private Date created;*/
 
     private boolean active;
 

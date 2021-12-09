@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head_frag :: head('User list')"></head>
+<head th:replace="fragments/frag-head :: head('User list')"></head>
 <body>
-<header th:insert="fragments/header_frag :: header"></header>
+<header th:insert="fragments/frag-header :: header"></header>
 
 <div class="container mt-5">
   <h1>List of users</h1>
@@ -44,7 +44,9 @@
                 </td>
                 <td class="text-center">
                   <a class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" th:href="'/userlist/' + ${user.id}"><i class="fa fa-edit"></i> </a>
-                  <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
+                  <form th:action="'/userlist/' + ${user.id} +'/remove'" metod="post">
+                  <button type="submit" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
+                  </form>
                 </td>
               </tr>
            </tbody>
@@ -54,6 +56,6 @@
     </div>
   </div>
 </div>
-<div th:insert="fragments/footer_frag :: footer"></div>
+<div th:insert="fragments/frag-footer :: footer"></div>
 </body>
 </html>

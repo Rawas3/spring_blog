@@ -3,15 +3,17 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <!-- Slider section fragment -->
-<div th:fragment="section(heading)">
+<div th:fragment="wrapper(heading)">
 
-    <div class="hero-wrap hero-wrap-2">
+    <div class="wrapper hero-wrap hero-wrap-2">
+
         <div class="container-inner">
-            <img class="w-100" src="images/garden/xbg_2.jpg" alt="">
+            <img class="w-100" th:src="@{/images/garden/xbg_2.jpg}" alt="">
             <div class="centered">
                 <h1 class="bread" th:text="${heading}"></h1>
             </div>
         </div>
+
         <div class="overlay"></div>
     </div>
 

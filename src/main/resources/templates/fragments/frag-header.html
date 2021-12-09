@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:th="http://www.thymeleaf.org">
 
 <!-- Header fragment -->
 <div th:fragment="header">
@@ -16,14 +15,14 @@
                                 <a class="nav_flag me-1">
                                     <img th:src="@{/images/icons/header/address.png}" height="25" width="25"/></a>
                             </div>
-                            <span class="text">198 West 21th Street, Suite 721 New York NY 10016</span>
+                            <span class="text">[[#{header.address}]]</span>
                         </div>
                         <div class="col-md pr-4 d-flex topper align-items-center">
                             <div class="icon mr-2 d-flex align-items-center">
                                 <a class="nav_flag me-1">
                                     <img th:src="@{/images/icons/header/email.png}" height="25" width="25"/></a>
                             </div>
-                            <span class="text">youremail@email.com</span>
+                            <span class="text">info@vaikystes-sodas.lt</span>
                         </div>
                         <div class="col-md pr-4 d-flex topper align-items-center">
                             <div class="icon bg-tertiary mr-2 d-flex align-items-center">
@@ -48,7 +47,7 @@
 
     <!-- Navbar -->
 
-    <nav class="navbar navbar-expand-lg ftco_navbar bg-light" id="ftco-navbar">
+    <nav class="navbar navbar-expand-lg ftco_navbar bg-light">
         <div class="container d-flex align-items-center">
             <h5 class="navbar-brand">KidsGarten</h5>
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -60,16 +59,16 @@
                 <ul class="navbar-nav d-inline-flex mr-auto ms-md-auto">
                     <li class="nav-item"><a class="nav-link" href="/">[[#{header.home}]]</a></li>
                     <li class="nav-item"><a class="nav-link" href="/about">[[#{header.about}]]</a></li>
-                    <li class="nav-item"><a class="nav-link" href="teacher.html">Schools</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pricing.html">Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/schools">[[#{header.schools}]]</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">[[#{header.learning}]]</a></li>
                     <li class="nav-item"><a class="nav-link" href="/blog">[[#{header.blog}]]</a></li>
                     <li class="nav-item"><a class="nav-link" href="/blog/add">[[#{header.addBlog}]]</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">[[#{header.contact}]]</a></li>
                     <li class="nav-item"><a class="nav-link" href="/userlist">[[#{header.userList}]]</a></li>
                 </ul>
 
                 <form th:action="@{/logout}" method="post">
-                    <input class="button fs-6 me-2" type="submit" th:value="#{header.button.signOut}"/>
+                    <button type="submit" class="button fs-6 me-2">[[#{header.button.signOut}]]</button>
                 </form>
             </div>
         </div>

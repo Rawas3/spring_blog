@@ -1,20 +1,24 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head_frag :: head('Add blog')"></head>
+<meta charset="UTF-8">
+<head th:replace="fragments/frag-head :: head('Add blog')"></head>
 
 <body>
-<header th:insert="fragments/header_frag :: header"></header>
+<header th:insert="fragments/frag-header :: header"></header>
+<section th:insert="fragments/frag-wrapper :: wrapper('Add post')"></section>
+
 
 <div class="container mt-5 mb-5">
     <h1>Prideti straipsni</h1>
-    <form action="/blog/add" th:method="post">
+    <form action="/blog/add" th:method="post" enctype="multipart/form-data">
         <input type="hidden" th:value="${_csrf.token}" name="_csrf" class="form-control"><br>
         <input type="text" name="title" placeholder="Iveskite straipsnio pavadinima" class="form-control"><br>
         <textarea class="form-control" name="full_text" placeholder="Iveskite straipsnio teksta"></textarea><br>
+        <input type="file" name="file">
         <button type="submit" class="btn btn-success">Prideti</button>
     </form>
 </div>
 
-<div th:insert="fragments/footer_frag :: footer"></div>
+<div th:insert="fragments/frag-footer :: footer"></div>
 </body>
 </html>

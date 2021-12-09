@@ -1,10 +1,11 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <meta charset="UTF-8">
-<head th:replace="fragments/head_frag :: head('Edit blog')"></head>
+<head th:replace="fragments/frag-head :: head('Edit blog')"></head>
 
 <body>
-<header th:insert="fragments/header_frag :: header"></header>
+<header th:insert="fragments/frag-header :: header"></header>
+<section th:insert="fragments/frag-wrapper :: wrapper('Edit post')"></section>
 
 <div class="container mt-5 mb-5">
     <h1>Straipsnio koregavimas</h1>
@@ -18,6 +19,6 @@
     </div>
 </div>
 
-<div th:insert="fragments/footer_frag :: footer"></div>
+<div th:insert="fragments/frag-footer :: footer"></div>
 </body>
 </html>

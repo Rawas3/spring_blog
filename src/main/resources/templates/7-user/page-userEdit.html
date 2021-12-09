@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/frag-head :: head('User edit')"></head>
+<body>
+<header th:insert="fragments/frag-header :: header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Vartotojo koregavimas</h1>
+    <div>
+        <form action="/userlist" method="post">
+            <input class="form-control" type="hidden" name="_csrf"
+                   th:value="${_csrf.token}"><br>
+            <input class="form-control" type="hidden" name="userId"
+                   th:value="${user.id}"><br>
+            <input class="form-control" type="text" name="username"
+                   th:value="${user.username}"><br>
+            <div class="form-check" th:each="role : ${roles}">
+                <label><input type="checkbox" th:checked="${#lists.contains(user.roles, role)}"
+                              th:name="${role}" th:text="${role}"></label>
+            </div><br>
+            <button class="btn btn-success" type="submit">Issaugoti</button>
+        </form>
+    </div>
+</div>
+
+<div th:insert="fragments/frag-footer :: footer"></div>
+</body>
+</html>

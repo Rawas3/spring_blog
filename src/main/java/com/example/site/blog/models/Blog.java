@@ -1,6 +1,5 @@
 package com.example.site.blog.models;
 
-import com.example.site.blog.models.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +11,7 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 @Entity
+@Table(name = "blogs")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Blog {
@@ -20,10 +20,11 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name="title")
     @NotBlank(message = "Name cannot be null")
     private String title;
 
-    @Column(name="full_text")
+
     @Type(type="text")
     private String full_text;
     private Integer views;
