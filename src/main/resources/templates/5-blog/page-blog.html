@@ -26,8 +26,7 @@
                                 </a>
                                 <div class="text bg-white p-4">
                                     <h3 class="heading"><a href="#" th:text="${blog.title}"></a></h3>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts.</p>
+                                    <p th:text="${blog.full_text}"></p>
                                     <div class="d-flex align-items-center mt-4">
                                         <p class="mb-0"><a th:href="'/blog/' + ${blog.id}" class="btn btn-secondary">[[#{button.readmore}]]<span
                                                     class="ion-ios-arrow-round-forward"></span></a></p>
